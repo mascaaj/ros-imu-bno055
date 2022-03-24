@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 #!/usr/bin/env python
 
->>>>>>> feat/low-pass-filter
 import rospy
 from scipy import signal
 from sensor_msgs.msg import Imu
@@ -10,17 +7,10 @@ from sensor_msgs.msg import Imu
 class ImuFilter():
 
     def __init__(self,
-<<<<<<< HEAD
-                order=4, 
-                fs=100.0, 
-                fc=45.0, 
-                type="low", 
-=======
                 order=4,
                 fs=100.0,
                 fc=45.0,
                 type="low",
->>>>>>> feat/low-pass-filter
                 topic_sub='/imu/data',
                 topic_pub='/imu/filtered',
                 content='linear_acceleration'):
