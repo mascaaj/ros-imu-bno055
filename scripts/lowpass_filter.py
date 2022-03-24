@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import rospy
 from scipy import signal
 from sensor_msgs.msg import Imu
@@ -5,10 +7,10 @@ from sensor_msgs.msg import Imu
 class ImuFilter():
 
     def __init__(self,
-                order=4, 
-                fs=100.0, 
-                fc=45.0, 
-                type="low", 
+                order=4,
+                fs=100.0,
+                fc=45.0,
+                type="low",
                 topic_sub='/imu/data',
                 topic_pub='/imu/filtered',
                 content='linear_acceleration'):
@@ -67,7 +69,7 @@ class ImuFilter():
 
 
 if __name__=="__main__":
-    
+
     rospy.init_node('imu_filter')
     imu_signal = rospy.get_param('~imu_signal','imu/data')
     imu_filtered = rospy.get_param('~imu_filtered','imu/filtered')
@@ -75,12 +77,12 @@ if __name__=="__main__":
     filter_fc = rospy.get_param('~filter_fc',45.0)
     filter_fs = rospy.get_param('~filter_fs',100.0)
     content = rospy.get_param('~content','linear_acceleration')
-    print(type(filter_fc))
-    ImuFilter(order=filter_order, 
-            fs=filter_fs, 
-            fc=filter_fc, 
+
+    ImuFilter(order=filter_order,
+            fs=filter_fs,
+            fc=filter_fc,
             topic_sub=imu_signal,
             topic_pub=imu_filtered,
             content=content)
-    print("here")
+
     rospy.spin()

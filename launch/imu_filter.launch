@@ -6,9 +6,8 @@
 	<arg name="filter_fc"			default="45"/> 
 	<arg name="filter_fs"			default="100"/> 
 	<arg name="content"			    default="linear_acceleration"/> 
-    <!-- 0x28 == 40 is the default for BNO055 -->
 
-    <node ns="imu" name="imu_filter" pkg="imu_bno055" type="low_pass_filter.py" respawn="true" respawn_delay="2">
+    <node ns="imu" name="imu_filter" pkg="imu_bno055" type="lowpass_filter.py" respawn="true" respawn_delay="2">
         <param name="imu_signal"    type="string"   value="$(arg imu_signal)"/> 
         <param name="imu_filtered"  type="string"   value="$(arg imu_filtered)"/> 
         <param name="filter_order"  type="int"      value="$(arg filter_order)"/> 
